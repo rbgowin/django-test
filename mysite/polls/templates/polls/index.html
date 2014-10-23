@@ -1,0 +1,17 @@
+{% if latest_question_list %}
+	<ul>
+	{% for question in latest_question_list %}
+	<!-- version 3: polls is the namespace so polls:detail is the page -->
+	<li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li> <!-- version 2 add polls: prefix -->
+
+	<!-- <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li> first version is hardcoded -->
+
+	<!-- LTliGTLTa href=QUOTECURLYPCT url SQUOTEdetailSQUOTE question.id PCTRCURLYQUOTEGTCURLYCURLY question.question_text RCURLYRCURLYLT/aGTLT/liGT version 1 -->
+	<!-- seems like some hrefs within a comment are getting interpreted -->
+	<!-- use string from variable in url -->
+
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>No polls are available.</p>
+{% endif %}
